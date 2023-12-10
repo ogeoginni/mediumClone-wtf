@@ -63,21 +63,27 @@ const addNewImage = () => {
   </span>
 </div>`;
   gallery.prepend(li);
-}
+};
 
-
-galleryForm.addEventListener('submit',  (event) => {
+galleryForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const imageNameValue = imageNameInput.value;
   const imageLinkValue = imageLinkInput.value;
   const imgObj = {
     imageName: imageNameValue,
     imageLink: imageLinkValue,
-  }
+  };
 
-  imageList.push(imgObj)
-  addNewImage()
-})
-
+  imageList.push(imgObj);
+  addNewImage();
+});
 
 fillGallery();
+
+const removeImageButton = document.querySelector(".removeImage");
+
+function deleteImage() {
+  gallery.removeChild(gallery.firstChild);
+}
+
+removeImageButton.addEventListener("click", deleteImage);
